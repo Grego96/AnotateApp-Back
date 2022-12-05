@@ -2,7 +2,7 @@ require("dotenv").config();
 const cors = require("cors");
 
 const express = require("express");
-// const routes = require("./routes");
+const routes = require("./routes");
 const APP_PORT = process.env.APP_PORT || 3000;
 // const dbInitialSetup = require("./dbInitialSetup");
 
@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// routes(app);
+routes(app);
 
 // dbInitialSetup();
 
