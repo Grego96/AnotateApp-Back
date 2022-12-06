@@ -22,9 +22,18 @@ async function register(req, res) {
   try {
     const [user, created] = await User.findOrCreate({
       where: {
+        // $or: [
+        //   {
+        //     email: req.body.email,
+        //   },
+        //   {
+        //     username: req.body.username,
+        //   },
+        // ],
         email: req.body.email,
       },
       defaults: {
+        username: req.body.username,
         email: req.body.email,
         password: req.body.password,
       },
@@ -32,7 +41,7 @@ async function register(req, res) {
     if (created) {
       res.status(201).json({ message: "User created!" });
     } else {
-      res.status(400).json({ message: "Email already exist." });
+      res.status(400).json({ message: "Email or username already exist." });
     }
   } catch (error) {
     res.status(400).json({ message: "A field is missing", error: error });

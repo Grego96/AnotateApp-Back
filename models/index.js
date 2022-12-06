@@ -12,5 +12,6 @@ const sequelize = new Sequelize(
 );
 
 const User = require("./User")(sequelize, Model, DataTypes);
+const Career = require("./Career")(sequelize, Model, DataTypes);
 
-module.exports = { sequelize, User };
+module.exports = { sequelize, User, Career };
