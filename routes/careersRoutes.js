@@ -1,6 +1,6 @@
 const express = require("express");
 const routes = express.Router();
-const careersController = require("../controllers/careersController");
+const careersController = require("../controllers/careerController");
 
 routes.get("/careers", careersController.index);
 routes.get("/careers/:id", careersController.show);

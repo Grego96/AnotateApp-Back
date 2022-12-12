@@ -1,7 +1,7 @@
 const usersRoutes = require("./usersRoutes");
-const courseRoutes = require("./courseRoutes");
+const carrersRoutes = require("./careersRoutes");
 
 module.exports = (app) => {
   app.use(usersRoutes);
-  app.use(courseRoutes);
+  app.use(carrersRoutes);
 };
