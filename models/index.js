@@ -14,6 +14,7 @@ const sequelize = new Sequelize(
 const User = require("./User")(sequelize, Model, DataTypes);
 const Career = require("./Career")(sequelize, Model, DataTypes);
 const Subject = require("./Subject")(sequelize, Model, DataTypes);
+const Event = require("./Event")(sequelize, Model, DataTypes);
 
 User.hasMany(Career);
 Career.belongsTo(User);
@@ -21,4 +22,7 @@ Career.belongsTo(User);
 Career.hasMany(Subject);
 Subject.belongsTo(Career);
 
-module.exports = { sequelize, User, Career, Subject };
+Career.hasMany(Event);
+Event.belongsTo(Career);
+
+module.exports = { sequelize, User, Career, Subject, Event };

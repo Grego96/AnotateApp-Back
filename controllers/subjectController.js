@@ -12,7 +12,7 @@ async function index(req, res) {
 async function show(req, res) {
   const subject = await Subject.findByPk(req.params.id);
   if (subject) {
-    res.status(200).json(career);
+    res.status(200).json(subject);
   } else {
     res.status(404).json({ message: "subject not found." });
   }
@@ -27,9 +27,8 @@ async function store(req, res) {
       defaults: {
         name: req.body.name,
         days: req.body.days,
-        // schedule: req.body.schedule,
+        schedule: req.body.schedule,
         type: req.body.type,
-        careerId: req.body.careerId,
       },
     });
     if (created) {
